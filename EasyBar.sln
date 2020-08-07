@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29905.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyBar", "EasyBar\EasyBar.csproj", "{CD64F662-5473-4D4F-AEF9-650B164C4949}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CD64F662-5473-4D4F-AEF9-650B164C4949}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD64F662-5473-4D4F-AEF9-650B164C4949}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD64F662-5473-4D4F-AEF9-650B164C4949}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD64F662-5473-4D4F-AEF9-650B164C4949}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F94F23CC-57F5-44DD-829F-276F77D6810E}
+	EndGlobalSection
+EndGlobal
