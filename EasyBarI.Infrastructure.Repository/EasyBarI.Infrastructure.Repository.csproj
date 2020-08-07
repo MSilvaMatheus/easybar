@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Consumer\Mapping\" />
+    <Folder Include="Consumer\Repository\" />
+    <Folder Include="Order\Mapping\" />
+    <Folder Include="Order\Repository\" />
+    <Folder Include="Table\Mapping\" />
+    <Folder Include="Table\Repository\" />
+  </ItemGroup>
+
+</Project>
