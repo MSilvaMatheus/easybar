@@ -4,5 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\EasyBar.Service\EasyBar.Service.csproj" />
+  </ItemGroup>
+
 
 </Project>
