@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace EasyBar.Domain.Entity.Repository
 {
@@ -23,13 +21,13 @@ namespace EasyBar.Domain.Entity.Repository
 
         //End Key region
 
-        public OrderEntity(string Item, int Quantity, decimal Value) {
-            this.Item = Item;
-            this.Quantity =  Quantity;
-            this.Value = Value;
-            this.CreatedAt = DateTime.Now;
-            this.UpdatedAt = DateTime.Now;
+        public OrderEntity(string item, int quantity, decimal value) 
+        {
+            Item = item;
+            Quantity = quantity;
+            Value = value;
+            CreatedAt = DateTime.Now;
+            UpdatedAt = DateTime.Now;
         }
-
     }
 }
