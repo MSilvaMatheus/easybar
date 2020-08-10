@@ -7,7 +7,7 @@ namespace EasyBar.Service.Interface
     {
         IResult Save(CategoriesDto categoriesDto); 
         IResult Update(CategoriesDto categoriesDto); 
-        IResult Delete(CategoriesDto categoriesDto);
+        IResult Delete(string guid);
         IResult GetAll();       
     }
 }
