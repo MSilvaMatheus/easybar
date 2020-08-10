@@ -15,12 +15,12 @@ namespace EasyBar.Domain.Entity.Authentication
             RuleFor(credential => credential.User)
                 .NotNull()
                 .NotEmpty()
-                .WithMessage("Usuario ou Senha inválidos");
+                .WithMessage("Usuário ou Senha inválidos");
 
             RuleFor(credential => credential.Password)
                 .NotNull()
                 .NotEmpty()
-                .WithMessage("Usuario ou Senha inválidos");
+                .WithMessage("Usuário ou Senha inválidos");
         }        
     }
 }

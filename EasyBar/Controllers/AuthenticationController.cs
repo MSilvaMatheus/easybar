@@ -1,5 +1,4 @@
-﻿using EasyBar.Domain.Entity.Authentication;
-using EasyBar.Domain.TransferObjects;
+﻿using EasyBar.Domain.TransferObjects;
 using EasyBar.Service.Interface;
 using Microsoft.AspNetCore.Mvc;
 using System;
