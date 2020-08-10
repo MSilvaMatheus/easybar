@@ -2,5 +2,6 @@
 {
     public class TableEntity : EntityBase
     {
+        public int Number { get; set; }
     }
 }

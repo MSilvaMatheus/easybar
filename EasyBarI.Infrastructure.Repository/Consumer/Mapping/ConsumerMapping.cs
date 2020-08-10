@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace EasyBarI.Infrastructure.Repository.Consumer.Mapping
 {
-    class ConsumerMapping
+    public class ConsumerMapping : IEntityTypeConfiguration<ConsumerEntity>
     {
     }
 }
