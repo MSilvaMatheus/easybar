@@ -20,6 +20,10 @@ namespace EasyBarI.Infrastructure.Repository.Order.Mapping
             builder.HasOne(x => x.Consumer)
                    .WithMany(y => y.Order)
                    .HasForeignKey(order => order.ForeignKeyConsumer);
+
+            builder.HasOne(order => order.Item)
+                .WithMany(item => item.Order)
+                .HasForeignKey(order => order.ForeignKeyItem);
         }
     }
 }

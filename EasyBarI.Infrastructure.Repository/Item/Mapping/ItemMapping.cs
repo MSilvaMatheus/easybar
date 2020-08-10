@@ -16,9 +16,9 @@ namespace EasyBarI.Infrastructure.Repository.Item.Mapping
             builder.Property(item => item.CreatedAt).HasColumnName("CreatedAt").IsRequired();
             builder.Property(item => item.UpdatedAt).HasColumnName("UpdatedAt").IsRequired();
 
-            //builder.HasOne(x => x.Order)
-            //       .WithMany(y => y.Order)
-            //       .HasForeignKey(order => order.ForeignKeyConsumer);
+            builder.HasOne(item => item.Categories)
+                   .WithMany(categories => categories.Item)
+                   .HasForeignKey(item => item.ForeignKeyCategories);
         }
     }
 }
