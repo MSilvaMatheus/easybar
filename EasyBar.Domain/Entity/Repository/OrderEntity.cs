@@ -11,15 +11,9 @@ namespace EasyBar.Domain.Entity.Repository
 
         public decimal Value { get; set; }
 
-        public DateTime CreatedAt { get; set; }
+        public string ForeignKeyConsumer { get; set; }
 
-        public DateTime UpdatedAt { get; set; }
-
-        //Key region
-
-        public ConsumerEntity Consumer { get; set; }
-
-        //End Key region
+        public virtual ConsumerEntity Consumer { get; set; }
 
         public OrderEntity(string item, int quantity, decimal value) 
         {

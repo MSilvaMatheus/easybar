@@ -14,11 +14,13 @@ namespace EasyBarI.Infrastructure.Repository.Order.Mapping
             builder.Property(order => order.Item).HasColumnName("Item").IsRequired();
             builder.Property(order => order.Quantity).HasColumnName("Quantity").IsRequired();
             builder.Property(order => order.Value).HasColumnName("Value").IsRequired();
+            builder.Property(order => order.ForeignKeyConsumer).HasColumnName("FKConsumer").IsRequired();
             builder.Property(order => order.CreatedAt).HasColumnName("CreatedAt").IsRequired();
             builder.Property(order => order.UpdatedAt).HasColumnName("UpdatedAt").IsRequired();
+
             builder.HasOne(x => x.Consumer)
                    .WithMany(y => y.Order)
-                   .HasForeignKey();
+                   .HasForeignKey(order => order.ForeignKeyConsumer);
         }
     }
 }

@@ -8,7 +8,17 @@ namespace EasyBarI.Infrastructure.Repository.Consumer.Mapping
     {
         public void Configure(EntityTypeBuilder<ConsumerEntity> builder)
         {
-            throw new System.NotImplementedException();
+            builder.ToTable("Consumer");
+
+            builder.HasKey(consumer => consumer.Id).IsClustered(true);
+            builder.Property(consumer => consumer.PhoneNumber).HasColumnName("PhoneNumber").IsRequired();
+            builder.Property(consumer => consumer.ForeignKeyTable).HasColumnName("FkTable").IsRequired();
+            builder.Property(consumer => consumer.CreatedAt).HasColumnName("CreatedAt").IsRequired();
+            builder.Property(consumer => consumer.UpdatedAt).HasColumnName("UpdatedAt").IsRequired();
+
+            builder.HasOne(consumer => consumer.Table)
+                .WithOne(table => table.Consumer)
+                .HasForeignKey<ConsumerEntity>(consumer => consumer.ForeignKeyTable);
         }
     }
 }
