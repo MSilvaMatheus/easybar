@@ -2,7 +2,7 @@
 
 namespace EasyBar.Domain.Entity.Repository
 {
-    public class OrderEntity : EntityBase
+    public class OrderEntity : EntityBase<OrderEntity>
     {
         public int Quantity { get; set; }
 

@@ -2,7 +2,7 @@
 
 namespace EasyBar.Domain.Entity.Repository
 {
-    public class ItemEntity : EntityBase
+    public class ItemEntity : EntityBase<ItemEntity>
     {
         public int Name { get; set; }
         public decimal Value { get; set; }

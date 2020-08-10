@@ -1,4 +1,5 @@
 ﻿using EasyBar.Domain.TransferObjects;
+using EasyBar.Service.Interface;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -10,10 +11,11 @@ namespace EasyBar.Controllers
     public class CategoriesController : ControllerBase
     {
         private readonly ILogger<CategoriesController> _logger;
+        private readonly ICategoriesService _categoriesService;
 
-        public CategoriesController(ILogger<CategoriesController>  logger)
+        public CategoriesController(ICategoriesService categoriesService)
         {
-            _logger = logger;
+            _categoriesService = categoriesService;
         }
 
         [HttpPost]
@@ -21,7 +23,8 @@ namespace EasyBar.Controllers
         {
             try
             {
-                return Ok();
+                var teste = _categoriesService.Save(categoriesDto);
+                return Ok(teste);
             }
             catch (Exception ex)
             {
