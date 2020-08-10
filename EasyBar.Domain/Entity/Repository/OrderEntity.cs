@@ -4,7 +4,9 @@ using System.Text;
 
 namespace EasyBar.Domain.Entity.Repository
 {
-    class OrderEntity
+    public class OrderEntity : EntityBase
     {
+        
+
     }
 }
