@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace EasyBarI.Infrastructure.Repository.Order.Mapping
 {
-    class OrderMapping
+    public class OrderMapping : IEntityTypeConfiguration<OrderEntity>
     {
     }
 }
