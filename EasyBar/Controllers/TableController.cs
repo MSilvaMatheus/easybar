@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using EasyBar.Domain.TransferObjects;
+using EasyBar.Service.Interface;
+using System;
 
 namespace EasyBar.Controllers
 {
@@ -18,9 +20,9 @@ namespace EasyBar.Controllers
         }
 
         [HttpGet]
-        public IActionResult<TableDto> Get()
+        public IActionResult Get()
         {
-            return "I am API EasyBar";
+            return Ok("I am API EasyBar");
         }
 
         [HttpPost]
@@ -35,7 +37,6 @@ namespace EasyBar.Controllers
                 return BadRequest("Ocorreu um erro ao cadastrar uma mesa nova, entre em contato com o Administrador! " + ex.Message);
             }
         }
-    }]
-
+   
     }
 }
