@@ -32,6 +32,7 @@ namespace EasyBar.Service.ConfigurationServices
 		public static void DependencyResolverService(this IServiceCollection service)
 		{
 			service.AddSingleton<ITokenService, TokenService>();
+			service.AddScoped<ICategoriesService, CategoriesService>();
 		}
     }
 }
