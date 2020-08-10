@@ -24,11 +24,11 @@ namespace EasyBar.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post(TableDto table) 
+        public IActionResult Post(TableDto tableDto) 
         {
           try
           {
-            return Ok(_tableService.Save(table));
+            return Ok(_tableService.Save(tableDto));
           }
           catch(Exception ex) 
           {
