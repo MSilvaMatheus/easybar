@@ -29,11 +29,11 @@ namespace EasyBar.Service
         public IResult Save(CategoriesDto categoriesDto)
         {
             CategoriesEntity categories = new CategoriesEntity(categoriesDto.Name);
-            var validateResult = categories.Validate(categories);
+            categories.Validate();
 
-            if (!validateResult.IsValid)
+            if (categories.Invalid)
             {
-                return new ValidateResult(null, false, validateResult.ToString());
+                return new ValidateResult(categories.Notifications, false, "Problemas ao cadastrar a Categoria");
             }
 
             _categoriesRepository.Add(categories);

@@ -1,11 +1,11 @@
-﻿using FluentValidation;
+﻿using Flunt.Notifications;
 using System;
 
 namespace EasyBar.Domain.Entity.Repository
 {
-    public abstract class EntityBase<T> : AbstractValidator<T> where T: class
+    public abstract class EntityBase: Notifiable
     {
-        public string Id { get; set; }
+        public string Id { get; private set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
 
@@ -14,6 +14,11 @@ namespace EasyBar.Domain.Entity.Repository
             Id = Guid.NewGuid().ToString();
             CreatedAt = DateTime.Now;
             UpdatedAt = DateTime.Now;
+        }
+
+        public virtual void Validate()
+        {
+            throw new NotImplementedException();
         }
     }
 }

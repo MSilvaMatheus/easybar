@@ -1,6 +1,6 @@
 ﻿namespace EasyBar.Domain.Entity.Repository
 {
-    public class TableEntity : EntityBase<TableEntity>
+    public class TableEntity : EntityBase
     {
         public int Number { get; set; }
 

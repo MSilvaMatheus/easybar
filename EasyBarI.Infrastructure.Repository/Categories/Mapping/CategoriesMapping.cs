@@ -15,7 +15,10 @@ namespace EasyBarI.Infrastructure.Repository.Categories.Mapping
             builder.Property(categories => categories.CreatedAt).HasColumnName("CreatedAt").IsRequired();
             builder.Property(categories => categories.UpdatedAt).HasColumnName("UpdatedAt").IsRequired();
 
-            builder.Ignore(categories => categories.CascadeMode);
+            builder.Ignore(categories => categories.Invalid);
+            builder.Ignore(categories => categories.Notifications);
+            builder.Ignore(categories => categories.Valid);
+            
         }
     }
 }

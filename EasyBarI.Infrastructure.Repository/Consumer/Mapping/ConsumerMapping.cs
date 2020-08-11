@@ -15,7 +15,12 @@ namespace EasyBarI.Infrastructure.Repository.Consumer.Mapping
             builder.Property(consumer => consumer.ForeignKeyTable).HasColumnName("FkTable").IsRequired();
             builder.Property(consumer => consumer.CreatedAt).HasColumnName("CreatedAt").IsRequired();
             builder.Property(consumer => consumer.UpdatedAt).HasColumnName("UpdatedAt").IsRequired();
-            builder.Ignore(consumer => consumer.CascadeMode);
+
+            builder.Ignore(consumer => consumer.Invalid);
+            builder.Ignore(consumer => consumer.Notifications);
+            builder.Ignore(consumer => consumer.Valid);
+
+
             builder.HasOne(consumer => consumer.Table)
                 .WithOne(table => table.Consumer)
                 .HasForeignKey<ConsumerEntity>(consumer => consumer.ForeignKeyTable);

@@ -23,11 +23,10 @@ namespace EasyBar.Service
         public IResult Generate(LoginDto login)
         {
             CredentialEntity credentialEntity = new CredentialEntity(login.User, login.Password);
-            var validateResult = credentialEntity.Validate(credentialEntity);
-
-            if (!validateResult.IsValid)
+           
+            if (credentialEntity.Invalid)
             {
-                return new ValidateResult(null, false, validateResult.ToString());
+                return new ValidateResult(credentialEntity.Notifications, false, "Probleamas o obter acesso");
             }
 
             SymmetricSecurityKey symmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));

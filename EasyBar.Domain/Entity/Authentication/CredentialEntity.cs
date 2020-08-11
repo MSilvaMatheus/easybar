@@ -1,8 +1,9 @@
-﻿using FluentValidation;
+﻿using EasyBar.Domain.Entity.Repository;
+using Flunt.Validations;
 
 namespace EasyBar.Domain.Entity.Authentication
 {
-    public class CredentialEntity : AbstractValidator<CredentialEntity>
+    public class CredentialEntity : EntityBase
     {
         public string User { get; set; }
         public string Password { get; set; }
@@ -10,17 +11,14 @@ namespace EasyBar.Domain.Entity.Authentication
         public CredentialEntity(string user, string password)
         {
             User = user;
-            Password = password;
+            Password = password;  
+        }
 
-            RuleFor(credential => credential.User)
-                .NotNull()
-                .NotEmpty()
-                .WithMessage("Usuário ou Senha inválidos");
-
-            RuleFor(credential => credential.Password)
-                .NotNull()
-                .NotEmpty()
-                .WithMessage("Usuário ou Senha inválidos");
-        }        
+        public override void Validate()
+        {
+            AddNotifications(new Contract()
+               .IsNotNullOrEmpty(User, nameof(User), "O Usuário ou Senha inválidos")
+               .IsNotNullOrEmpty(Password, nameof(Password), "O Usuário ou Senha inválidos"));
+        }
     }
 }

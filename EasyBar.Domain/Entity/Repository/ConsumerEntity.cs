@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace EasyBar.Domain.Entity.Repository
 {
-    public class ConsumerEntity : EntityBase<ConsumerEntity>
+    public class ConsumerEntity : EntityBase
     {
         public long PhoneNumber { get; set; }
         public string ForeignKeyTable { get; set; }

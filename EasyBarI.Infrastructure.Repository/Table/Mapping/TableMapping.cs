@@ -15,7 +15,9 @@ namespace EasyBarI.Infrastructure.Repository.Table.Mapping
             builder.Property(table => table.CreatedAt).HasColumnName("CreatedAt").IsRequired(); 
             builder.Property(table => table.UpdatedAt).HasColumnName("UpdatedAt").IsRequired();
 
-            builder.Ignore(table => table.CascadeMode);
+            builder.Ignore(table => table.Invalid);
+            builder.Ignore(table => table.Notifications);
+            builder.Ignore(table => table.Valid);
         }
     }
 }
