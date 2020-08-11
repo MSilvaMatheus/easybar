@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\EasyBar.Service\EasyBar.Service.csproj" />
+    <ProjectReference Include="..\EasyBarI.Infrastructure.Repository\EasyBarI.Infrastructure.Repository.csproj" />
   </ItemGroup>
 
 

@@ -1,6 +1,7 @@
 ﻿using EasyBar.Domain.Entity.Repository;
 using EasyBar.Domain.Entity.Validation;
 using EasyBar.Domain.Interfaces;
+using EasyBar.Domain.Interfaces.Repository;
 using EasyBar.Domain.TransferObjects;
 using EasyBar.Service.Interface;
 
@@ -8,12 +9,14 @@ namespace EasyBar.Service
 {
     public class CategoriesService : ICategoriesService
     {
-        public CategoriesService()
-        {
+        private readonly ICategoriesRepository _categoriesRepository;
 
+        public CategoriesService(ICategoriesRepository categoriesRepository)
+        {
+            _categoriesRepository = categoriesRepository;
         }
 
-        public IResult Delete(CategoriesDto categoriesDto)
+        public IResult Delete(string guid)
         {
             throw new System.NotImplementedException();
         }
@@ -33,8 +36,9 @@ namespace EasyBar.Service
                 return new ValidateResult(null, false, validateResult.ToString());
             }
 
-            return new ValidateResult(null, true, "oi");
+            _categoriesRepository.Add(categories);
 
+            return new ValidateResult(categories, true, "Categoria cadastrada com sucessso");
         }
 
         public IResult Update(CategoriesDto categoriesDto)

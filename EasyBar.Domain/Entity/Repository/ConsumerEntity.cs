@@ -11,6 +11,10 @@ namespace EasyBar.Domain.Entity.Repository
         public virtual TableEntity Table { get; set; }
         public virtual ICollection<OrderEntity> Order { get; set; }
 
+        public ConsumerEntity()
+        {
+
+        }
         public ConsumerEntity(long phoneNumber)
         {
             PhoneNumber = phoneNumber;

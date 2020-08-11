@@ -13,7 +13,10 @@ namespace EasyBar.Domain.Entity.Repository
         public virtual ConsumerEntity Consumer { get; set; }
 
         public virtual ItemEntity Item { get; set; }
+        public OrderEntity()
+        {
 
+        }
         public OrderEntity(ItemEntity item, int quantity, decimal value) 
         {
             Item = item;

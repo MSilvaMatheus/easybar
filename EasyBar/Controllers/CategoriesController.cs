@@ -75,6 +75,5 @@ namespace EasyBar.Controllers
                 return BadRequest("Ocorreu uma falha na busca de Categorias");
             }
         }
-
     }
 }

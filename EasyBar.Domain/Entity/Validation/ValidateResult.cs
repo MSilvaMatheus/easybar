@@ -3,7 +3,7 @@ namespace EasyBar.Domain.Entity.Validation
 {
     public class ValidateResult :  IResult
     {
-        public object Data { get; set; }
+        public dynamic Data { get; set; }
         public bool isSucess { get; set; }
         public string Message { get; set; }
 

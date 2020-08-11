@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using System;
 using System.Collections.Generic;
 
 namespace EasyBar.Domain.Entity.Repository
@@ -9,10 +10,16 @@ namespace EasyBar.Domain.Entity.Repository
 
         public virtual ICollection<ItemEntity> Item { get; set; }
 
+        public CategoriesEntity()
+        {
+
+        }
         public CategoriesEntity(string name)
         {
+            //Id = Guid.NewGuid().ToString();
             Name = name;
-
+            CreatedAt = CreatedAt == DateTime.MinValue ? DateTime.Now : CreatedAt;
+            UpdatedAt = DateTime.Now;
             RuleFor(catergories => catergories.Name)
                .NotNull()
                .NotEmpty()

@@ -1,13 +1,21 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using EasyBar.Domain.Interfaces.Repository;
+using EasyBarI.Infrastructure.Repository.Categories.Repository;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace EasyBarI.Infrastructure.Repository.ConfigurationsRepository
 {
     public static class ConfigurationRepository
     {
-        public static void ConfigurationContext(this IServiceCollection services)
+        public static void ConfigurationContext(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<DataBaseContext>(contexto => contexto.UseSqlServer("teste"));
+            services.AddDbContext<DataBaseContext>(context => context.UseMySQL(configuration.GetConnectionString("EasyBar")));
+        }
+
+        public static void DependencyResolverRepository(this IServiceCollection service)
+        {
+            service.AddScoped<ICategoriesRepository, CategoriesRepository>();
         }
     }
 }

@@ -6,6 +6,10 @@
 
         public virtual ConsumerEntity Consumer { get; set; }
 
+        public TableEntity()
+        {
+
+        }
         public TableEntity(int number)
         {
             Number = number;

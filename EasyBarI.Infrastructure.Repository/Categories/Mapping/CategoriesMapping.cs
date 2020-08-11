@@ -10,10 +10,12 @@ namespace EasyBarI.Infrastructure.Repository.Categories.Mapping
         {
             builder.ToTable("Categories");
 
-            builder.HasKey(item => item.Id).IsClustered(true);
-            builder.Property(item => item.Name).HasColumnName("Quantity").IsRequired();
-            builder.Property(item => item.CreatedAt).HasColumnName("CreatedAt").IsRequired();
-            builder.Property(item => item.UpdatedAt).HasColumnName("UpdatedAt").IsRequired();
+            builder.HasKey(categories => categories.Id).IsClustered(true);
+            builder.Property(categories => categories.Name).HasColumnName("Name").IsRequired();
+            builder.Property(categories => categories.CreatedAt).HasColumnName("CreatedAt").IsRequired();
+            builder.Property(categories => categories.UpdatedAt).HasColumnName("UpdatedAt").IsRequired();
+
+            builder.Ignore(categories => categories.CascadeMode);
         }
     }
 }

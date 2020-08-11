@@ -17,6 +17,8 @@ namespace EasyBarI.Infrastructure.Repository.Order.Mapping
             builder.Property(order => order.CreatedAt).HasColumnName("CreatedAt").IsRequired();
             builder.Property(order => order.UpdatedAt).HasColumnName("UpdatedAt").IsRequired();
 
+            builder.Ignore(order => order.CascadeMode);
+
             builder.HasOne(x => x.Consumer)
                    .WithMany(y => y.Order)
                    .HasForeignKey(order => order.ForeignKeyConsumer);

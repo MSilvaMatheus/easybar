@@ -12,8 +12,10 @@ namespace EasyBarI.Infrastructure.Repository.Table.Mapping
 
             builder.HasKey(table => table.Id).IsClustered(true);
             builder.Property(table => table.Number).HasColumnName("Number").IsRequired();
-            builder.Property(table => table.CreatedAt).HasColumnName("CreatedAt").IsRequired(); ;
-            builder.Property(table => table.UpdatedAt).HasColumnName("UpdatedAt").IsRequired(); ;
+            builder.Property(table => table.CreatedAt).HasColumnName("CreatedAt").IsRequired(); 
+            builder.Property(table => table.UpdatedAt).HasColumnName("UpdatedAt").IsRequired();
+
+            builder.Ignore(table => table.CascadeMode);
         }
     }
 }
