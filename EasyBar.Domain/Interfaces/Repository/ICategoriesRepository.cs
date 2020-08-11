@@ -10,6 +10,7 @@ namespace EasyBar.Domain.Interfaces.Repository
         void Update(CategoriesEntity categoriesEntity);
         void Delete(CategoriesEntity categoriesEntity);
         IQueryable<CategoriesEntity> GetAll();
+        CategoriesEntity Get(CategoriesEntity categoriesEntity);
 
     }
 }

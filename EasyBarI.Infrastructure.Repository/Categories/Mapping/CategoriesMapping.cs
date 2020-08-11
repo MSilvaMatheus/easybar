@@ -18,7 +18,7 @@ namespace EasyBarI.Infrastructure.Repository.Categories.Mapping
             builder.Ignore(categories => categories.Invalid);
             builder.Ignore(categories => categories.Notifications);
             builder.Ignore(categories => categories.Valid);
-            
+            builder.Ignore(categories => categories.IsExist);           
         }
     }
 }

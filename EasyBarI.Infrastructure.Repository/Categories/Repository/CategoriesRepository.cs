@@ -11,24 +11,18 @@ namespace EasyBarI.Infrastructure.Repository.Categories.Repository
         public CategoriesRepository(DataBaseContext dataBaseContext) => _dataBaseContext = dataBaseContext;
 
         public async Task<CategoriesEntity> Add(CategoriesEntity categoriesEntity) 
-        {
-            try
-            {
-                await _dataBaseContext.Categories.AddAsync(categoriesEntity);
-                await _dataBaseContext.SaveChangesAsync();
-            }
-            catch (System.Exception ex)
-            {
-
-                throw ex;
-            }
-         
-          
+        {           
+            await _dataBaseContext.Categories.AddAsync(categoriesEntity);
+            await _dataBaseContext.SaveChangesAsync();
+               
             return categoriesEntity;
         }
 
         public void Delete(CategoriesEntity categoriesEntity) 
             => _dataBaseContext.Categories.Remove(categoriesEntity);
+
+        public CategoriesEntity Get(CategoriesEntity categoriesEntity)
+            => _dataBaseContext.Categories.FirstOrDefault(c => c.Name == categoriesEntity.Name);
 
         public IQueryable<CategoriesEntity> GetAll() 
             => _dataBaseContext.Categories.ToList().AsQueryable();

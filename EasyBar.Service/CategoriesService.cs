@@ -29,15 +29,20 @@ namespace EasyBar.Service
         public IResult Save(CategoriesDto categoriesDto)
         {
             CategoriesEntity categories = new CategoriesEntity(categoriesDto.Name);
-            categories.Validate();
 
+            if (_categoriesRepository.Get(categories) != null)
+            {
+                return new ValidateResult(categories, false, "Categoria informada já existe");
+            }
+
+            categories.Validate();
+           
             if (categories.Invalid)
             {
                 return new ValidateResult(categories.Notifications, false, "Problemas ao cadastrar a Categoria");
             }
 
             _categoriesRepository.Add(categories);
-
             return new ValidateResult(categories, true, "Categoria cadastrada com sucessso");
         }
 
