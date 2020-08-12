@@ -18,14 +18,13 @@ namespace EasyBar.Service
 
         public IResult Delete(string guid)
         {
-            throw new System.NotImplementedException();
+            var categoriesEntity = _categoriesRepository.Get(guid);
+            _categoriesRepository.Delete(categoriesEntity);
+            return new ValidateResult(null, true, "Categoria deletada com sucesso");
         }
 
-        public IResult GetAll()
-        {
-            throw new System.NotImplementedException();
-        }
-
+        public IResult GetAll() => new ValidateResult(_categoriesRepository.GetAll(), true, "Categoria(s) cadastradas");
+     
         public IResult Save(CategoriesDto categoriesDto)
         {
             CategoriesEntity categories = new CategoriesEntity(categoriesDto.Name);
@@ -48,7 +47,19 @@ namespace EasyBar.Service
 
         public IResult Update(CategoriesDto categoriesDto)
         {
-            throw new System.NotImplementedException();
+            var categories = _categoriesRepository.Get(categoriesDto.Identification);
+
+            categories.SetName(categoriesDto.Name);
+
+            categories.Validate();
+
+            if (categories.Invalid)
+            {
+                return new ValidateResult(categories.Notifications, false, "Problemas ao atualizar a Categoria");
+            }
+
+            _categoriesRepository.Update(categories);
+            return new ValidateResult(categories, true, "Categoria atualizada com sucessso");
         }
     }
 }

@@ -24,8 +24,7 @@ namespace EasyBar.Controllers
         {
             try
             {
-                var teste = _categoriesService.Save(categoriesDto);
-                return Ok(teste);
+                return Ok(_categoriesService.Save(categoriesDto));
             }
             catch (Exception ex)
             {
@@ -63,11 +62,11 @@ namespace EasyBar.Controllers
         }
 
         [HttpDelete]
-        public IActionResult Delete(string id)
+        public IActionResult Delete(string identification)
         {
             try
             {
-                return Ok(_categoriesService.Delete(id));
+                return Ok(_categoriesService.Delete(identification));
             }
             catch (Exception ex)
             {

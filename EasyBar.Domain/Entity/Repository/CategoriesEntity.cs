@@ -38,5 +38,12 @@ namespace EasyBar.Domain.Entity.Repository
             UpdatedAt = categoriesEntity.UpdatedAt;
             IsExist = true;                                   
         }
+
+        public void SetName(string name)
+        {
+            Name = name;
+            UpdatedAt = DateTime.Now;
+        }
+      
     }
 }

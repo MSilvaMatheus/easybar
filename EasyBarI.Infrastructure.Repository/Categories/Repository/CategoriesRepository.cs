@@ -18,17 +18,26 @@ namespace EasyBarI.Infrastructure.Repository.Categories.Repository
             return categoriesEntity;
         }
 
-        public void Delete(CategoriesEntity categoriesEntity) 
-            => _dataBaseContext.Categories.Remove(categoriesEntity);
+        public void Delete(CategoriesEntity categoriesEntity)
+        { 
+            _dataBaseContext.Categories.Remove(categoriesEntity);
+            _dataBaseContext.SaveChanges();
+        }
 
         public CategoriesEntity Get(CategoriesEntity categoriesEntity)
             => _dataBaseContext.Categories.FirstOrDefault(c => c.Name == categoriesEntity.Name);
 
+        public CategoriesEntity Get(string guid) 
+            => _dataBaseContext.Categories.FirstOrDefault(c => c.Id == guid);
+
         public IQueryable<CategoriesEntity> GetAll() 
             => _dataBaseContext.Categories.ToList().AsQueryable();
-        
-        public void Update(CategoriesEntity categoriesEntity) 
-            => _dataBaseContext.Categories.Update(categoriesEntity);
+
+        public void Update(CategoriesEntity categoriesEntity)
+        { 
+            _dataBaseContext.Categories.Update(categoriesEntity);
+            _dataBaseContext.SaveChangesAsync();
+        }
 
     }
 }
