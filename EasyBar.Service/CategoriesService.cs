@@ -4,6 +4,7 @@ using EasyBar.Domain.Interfaces;
 using EasyBar.Domain.Interfaces.Repository;
 using EasyBar.Domain.TransferObjects;
 using EasyBar.Service.Interface;
+using Infrastructure.Utility;
 
 namespace EasyBar.Service
 {
@@ -18,6 +19,11 @@ namespace EasyBar.Service
 
         public IResult Delete(string guid)
         {
+            if (!Util.IsGuid(guid))
+            {
+                return new ValidateResult(null, false, "A identificação fornecida está inválida");
+            }
+
             var categoriesEntity = _categoriesRepository.Get(guid);
             _categoriesRepository.Delete(categoriesEntity);
             return new ValidateResult(null, true, "Categoria deletada com sucesso");
@@ -47,6 +53,11 @@ namespace EasyBar.Service
 
         public IResult Update(CategoriesDto categoriesDto)
         {
+            if (!Util.IsGuid(categoriesDto.Identification))
+            {
+                return new ValidateResult(null, false, "A identificação fornecida está inválida");
+            }
+
             var categories = _categoriesRepository.Get(categoriesDto.Identification);
 
             categories.SetName(categoriesDto.Name);

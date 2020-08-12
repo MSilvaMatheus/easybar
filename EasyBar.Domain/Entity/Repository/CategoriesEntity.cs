@@ -16,11 +16,10 @@ namespace EasyBar.Domain.Entity.Repository
         {
 
         }
+
         public CategoriesEntity(string name)
         {
-            Name = name;
-            CreatedAt = CreatedAt == DateTime.MinValue ? DateTime.Now : CreatedAt;
-            UpdatedAt = DateTime.Now;
+            Name = name;            
             IsExist = false;
         }
 
@@ -43,7 +42,6 @@ namespace EasyBar.Domain.Entity.Repository
         {
             Name = name;
             UpdatedAt = DateTime.Now;
-        }
-      
+        }     
     }
 }

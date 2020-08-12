@@ -33,6 +33,7 @@ namespace EasyBar.Service.ConfigurationServices
 		{
 			service.AddSingleton<ITokenService, TokenService>();
 			service.AddScoped<ICategoriesService, CategoriesService>();
+			service.AddScoped<ITableService, TableService>();
 		}
     }
 }

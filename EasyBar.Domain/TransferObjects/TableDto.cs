@@ -2,6 +2,7 @@ namespace EasyBar.Domain.TransferObjects
 {
     public class TableDto
     {
-        public string Number { get; set; }
+        public int Number { get; set; }
+        public string Identification { get; set; }
     }
 }

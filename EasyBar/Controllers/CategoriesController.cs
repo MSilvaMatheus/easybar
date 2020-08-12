@@ -57,7 +57,7 @@ namespace EasyBar.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message);
-                return BadRequest("Ocorreu uma falha na busca de Categorias");
+                return BadRequest("Ocorreu uma falha na alteração de Categorias");
             }
         }
 
@@ -71,7 +71,7 @@ namespace EasyBar.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message);
-                return BadRequest("Ocorreu uma falha na busca de Categorias");
+                return BadRequest("Ocorreu uma falha na exclusão de Categoria");
             }
         }
     }

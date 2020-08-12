@@ -18,25 +18,74 @@ namespace EasyBar.Controllers
             _tableService = tableService;
             _logger = logger;
         }
+        [HttpPost]
+        public IActionResult Post(TableDto categoriesDto)
+        {
+            try
+            {
+                return Ok(_tableService.Save(categoriesDto));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return BadRequest("Ocorreu uma falha no cadastro de Mesa");
+            }
+        }
 
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok("I am API EasyBar");
-        }
-
-        [HttpPost]
-        public IActionResult Post(TableDto table)
-        {
             try
             {
-                return Ok(_tableService.Save(table));
+                return Ok(_tableService.GetAll());
             }
             catch (Exception ex)
             {
-                return BadRequest("Ocorreu um erro ao cadastrar uma mesa nova, entre em contato com o Administrador! " + ex.Message);
+                _logger.LogError(ex.Message);
+                return BadRequest("Ocorreu uma falha na busca de Mesa");
             }
         }
-   
+
+        [HttpPut]
+        public IActionResult Put(TableDto categoriesDto)
+        {
+            try
+            {
+                return Ok(_tableService.Update(categoriesDto));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return BadRequest("Ocorreu uma falha na alteração de Mesa");
+            }
+        }
+
+        [HttpDelete]
+        public IActionResult Delete(string identification)
+        {
+            try
+            {
+                return Ok(_tableService.Delete(identification));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return BadRequest("Ocorreu uma falha na exclusão de Mesa");
+            }
+        }
+
+        [HttpGet]
+        public IActionResult Get(int number)
+        {
+            try
+            {
+                return Ok(_tableService.Get(number));
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return BadRequest("Ocorreu uma falha na busca de Mesa");
+            }
+        }
     }
 }

@@ -12,13 +12,13 @@ namespace EasyBar.Domain.Entity.Repository
         public EntityBase()
         {
             Id = Guid.NewGuid().ToString();
-            CreatedAt = DateTime.Now;
+            CreatedAt = CreatedAt == DateTime.MinValue ? DateTime.Now : CreatedAt;
             UpdatedAt = DateTime.Now;
         }
 
         public virtual void Validate()
         {
             throw new NotImplementedException();
-        }
+        }    
     }
 }

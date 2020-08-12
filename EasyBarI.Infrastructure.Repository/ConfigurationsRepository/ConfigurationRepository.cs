@@ -1,5 +1,6 @@
 ﻿using EasyBar.Domain.Interfaces.Repository;
 using EasyBarI.Infrastructure.Repository.Categories.Repository;
+using EasyBarI.Infrastructure.Repository.Table.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,6 +17,7 @@ namespace EasyBarI.Infrastructure.Repository.ConfigurationsRepository
         public static void DependencyResolverRepository(this IServiceCollection service)
         {
             service.AddScoped<ICategoriesRepository, CategoriesRepository>();
+            service.AddScoped<ITableRepository, TableRepository>();
         }
     }
 }
