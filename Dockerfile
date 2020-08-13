@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/core/aspnet:3.1.3-alpine.3.11 AS build
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
@@ -13,7 +13,7 @@ COPY EasyBar/. ./EasyBar/
 WORKDIR /app/EasyBar
 RUN dotnet publish -c Release -o out
 
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1.3-alpine.3.11 AS runtime
 WORKDIR /app
-COPY --from=build /app/aspnetapp/out ./
+COPY --from=build /app/EasyBar/out ./
 ENTRYPOINT ["dotnet", "EasyBar.dll"]
