@@ -6,7 +6,7 @@ EXPOSE 443
 # copy csproj and restore as distinct layers
 COPY *.sln .
 COPY EasyBar/*.csproj ./EasyBar/
-RUN dotnet restore
+RUN dotnet restore "EasyBar/EasyBar.csproj"
 
 # copy everything else and build app
 COPY EasyBar/. ./EasyBar/
