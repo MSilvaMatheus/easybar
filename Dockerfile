@@ -7,7 +7,7 @@ FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
 COPY ["EasyBar/EasyBar.csproj", "EasyBar/"]
 RUN dotnet restore "EasyBar/EasyBar.csproj"
-COPY ..
+COPY /src/EasyBar
 WORKDIR /src/EasyBar
 RUN dotnet build "EasyBar.csproj" -c Release -o /app/build
 
