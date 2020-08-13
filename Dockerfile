@@ -1,18 +1,20 @@
-FROM mcr.microsoft.com/dotnet/core/aspnet:3.1.3-alpine.3.11 AS base
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1-alpine AS build-env
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
-# Copy csproj and restore as distinct layers
+# Copiar csproj e restaurar dependencias
 COPY *.csproj ./
 RUN dotnet restore
 
-# Copy everything else and build
+RUN pwsh -Command Write-Host "EasyBarApi: Gerando uma nova imagem Docker com Alpine"
+
+# Build da aplicacao
 COPY . ./
 RUN dotnet publish -c Release -o out
 
-# Build runtime image
-FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
+# Build da imagem
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-alpine
 WORKDIR /app
 COPY --from=build-env /app/out .
 ENTRYPOINT ["dotnet", "EasyBar.dll"]
