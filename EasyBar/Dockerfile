@@ -4,7 +4,7 @@ EXPOSE 80
 EXPOSE 443
 
 # Copy csproj and restore as distinct layers
-COPY *.csproj ./
+COPY ["EasyBar/EasyBar.csproj", "EasyBar/"]
 RUN dotnet restore
 
 RUN pwsh -Command Write-Host "EasyBarApi: Gerando uma nova imagem Docker com Alpine"
