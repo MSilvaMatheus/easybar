@@ -2,9 +2,9 @@
 version: "3.4"
 
 services:
-  myapi:
-    container_name: bettybeer
-    image: bettybeer
+  easybarapi:
+    container_name: easybar-api
+    image: easybar-api
     environment:
       - PORT=5000
     ports:
