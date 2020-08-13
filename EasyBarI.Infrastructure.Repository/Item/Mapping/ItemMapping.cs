@@ -11,8 +11,9 @@ namespace EasyBarI.Infrastructure.Repository.Item.Mapping
             builder.ToTable("Item");
 
             builder.HasKey(item => item.Id).IsClustered(true);
-            builder.Property(item => item.Name).HasColumnName("Quantity").IsRequired();
-            builder.Property(item => item.Value).HasColumnName("FKConsumer").IsRequired();
+            builder.Property(item => item.Name).HasColumnName("Name").IsRequired();
+            builder.Property(item => item.Value).HasColumnName("Value").IsRequired();
+            builder.Property(item => item.ForeignKeySubCategories).HasColumnName("FkSubCategories").IsRequired();
             builder.Property(item => item.CreatedAt).HasColumnName("CreatedAt").IsRequired();
             builder.Property(item => item.UpdatedAt).HasColumnName("UpdatedAt").IsRequired();
 
@@ -20,9 +21,9 @@ namespace EasyBarI.Infrastructure.Repository.Item.Mapping
             builder.Ignore(item => item.Notifications);
             builder.Ignore(item => item.Valid);
 
-            builder.HasOne(item => item.Categories)
-                   .WithMany(categories => categories.Item)
-                   .HasForeignKey(item => item.ForeignKeyCategories);
+            builder.HasOne(item => item.SubCategories)
+                   .WithMany(categories => categories.Items)
+                   .HasForeignKey(item => item.ForeignKeySubCategories);
         }
     }
 }

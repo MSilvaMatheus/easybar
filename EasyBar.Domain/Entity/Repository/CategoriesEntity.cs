@@ -10,7 +10,7 @@ namespace EasyBar.Domain.Entity.Repository
 
         public bool IsExist { get; private set; }
 
-        public virtual ICollection<ItemEntity> Item { get; set; }
+        public virtual ICollection<SubCategoriesEntity> SubCategories { get; set; }
 
         public CategoriesEntity()
         {

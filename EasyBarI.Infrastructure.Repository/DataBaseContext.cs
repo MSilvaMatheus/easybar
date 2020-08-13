@@ -3,6 +3,7 @@ using EasyBarI.Infrastructure.Repository.Categories.Mapping;
 using EasyBarI.Infrastructure.Repository.Consumer.Mapping;
 using EasyBarI.Infrastructure.Repository.Item.Mapping;
 using EasyBarI.Infrastructure.Repository.Order.Mapping;
+using EasyBarI.Infrastructure.Repository.SubCategories.Mapping;
 using EasyBarI.Infrastructure.Repository.Table.Mapping;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,6 +16,7 @@ namespace EasyBarI.Infrastructure.Repository
         public DbSet<ConsumerEntity> Consumers { get; set; }
         public DbSet<OrderEntity> Orders { get; set; }
         public DbSet<ItemEntity> Items { get; set; }
+        public DbSet<SubCategoriesEntity> SubCategories { get; set; }
 
         public DataBaseContext(DbContextOptions<DataBaseContext> options) : base(options)
         {
@@ -28,6 +30,7 @@ namespace EasyBarI.Infrastructure.Repository
             modelBuilder.ApplyConfiguration(new ConsumerMapping());
             modelBuilder.ApplyConfiguration(new CategoriesMapping());
             modelBuilder.ApplyConfiguration(new ItemMapping());
+            modelBuilder.ApplyConfiguration(new SubCategoriesMapping());
         }
     }
 }
