@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyBar", "EasyBar\EasyBar.csproj", "{CD64F662-5473-4D4F-AEF9-650B164C4949}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{A364C2CE-EACF-4500-8E93-64F8EC1FC4B1}"
+	ProjectSection(SolutionItems) = preProject
+		EasyBar\docker-compose.yml = EasyBar\docker-compose.yml
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{C6A4D2AD-92EC-401B-A454-55B29E597A4A}"
 EndProject
