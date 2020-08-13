@@ -3,18 +3,16 @@ WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
-WORKDIR /src
-COPY ["EasyBar/EasyBar.csproj", "EasyBar/"]
-RUN dotnet restore "EasyBar/EasyBar.csproj"
-COPY /src/EasyBar
-WORKDIR /src/EasyBar
-RUN dotnet build "EasyBar.csproj" -c Release -o /app/build
+# Copy csproj and restore as distinct layers
+COPY *.csproj ./
+RUN dotnet restore
 
-FROM build AS publish
-RUN dotnet publish "EasyBar.csproj" -c Release -o /app/publish
+# Copy everything else and build
+COPY . ./
+RUN dotnet publish -c Release -o out
 
-FROM base AS final
+# Build runtime image
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
 WORKDIR /app
-COPY --from=publish /app/publish .
+COPY --from=build-env /app/out .
 ENTRYPOINT ["dotnet", "EasyBar.dll"]
