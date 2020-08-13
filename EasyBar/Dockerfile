@@ -16,5 +16,7 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 
+RUN useradd -m myappuser
+USER myappuser
 
 CMD ASPNETCORE_URLS="http://*:$PORT" dotnet EasyBar.dll

@@ -11,8 +11,7 @@ namespace EasyBar.Service.ConfigurationServices
     {
         public static void ContigurationJwt(this IServiceCollection service, IConfiguration configuration)
         {
-			service.AddAuthentication
-				(JwtBearerDefaults.AuthenticationScheme)
+			service.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 				.AddJwtBearer(options =>
 				{
 					options.TokenValidationParameters = new TokenValidationParameters
@@ -23,8 +22,7 @@ namespace EasyBar.Service.ConfigurationServices
 						ValidateIssuerSigningKey = true,
 						ValidIssuer = configuration["Jwt:Issuer"],
 						ValidAudience = configuration["Jwt:Audience"],
-						IssuerSigningKey = new SymmetricSecurityKey
-					(Encoding.UTF8.GetBytes(configuration["Jwt:Key"]))
+						IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:Key"]))
 					};
 				});
 		}
@@ -34,6 +32,7 @@ namespace EasyBar.Service.ConfigurationServices
 			service.AddSingleton<ITokenService, TokenService>();
 			service.AddScoped<ICategoriesService, CategoriesService>();
 			service.AddScoped<ITableService, TableService>();
+			service.AddScoped<ISubCategoriesService, SubCategoriesService>();
 		}
     }
 }
