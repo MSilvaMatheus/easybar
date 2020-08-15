@@ -18,6 +18,7 @@ namespace EasyBar.Controllers
             _tableService = tableService;
             _logger = logger;
         }
+
         [HttpPost]
         public IActionResult Post(TableDto categoriesDto)
         {
@@ -75,6 +76,7 @@ namespace EasyBar.Controllers
         }
 
         [HttpGet]
+        [Route("GetByNumber")]
         public IActionResult Get(int number)
         {
             try

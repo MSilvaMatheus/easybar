@@ -16,10 +16,15 @@ namespace EasyBar.Domain.Entity.Repository
 
         public virtual ICollection<ItemEntity> Items { get; set; }
 
-        public SubCategoriesEntity(string name)
+        public SubCategoriesEntity()
+        {
+
+        }
+        public SubCategoriesEntity(string name, string categories)
         {
             Name = name;
             IsExist = false;
+            ForeignKeyCategories = categories;
         }
 
         public SubCategoriesEntity(SubCategoriesEntity categoriesEntity)
@@ -42,5 +47,7 @@ namespace EasyBar.Domain.Entity.Repository
             Name = name;
             UpdatedAt = DateTime.Now;
         }
+
+        public void SetCategories(string categories) => ForeignKeyCategories = categories;
     }
 }

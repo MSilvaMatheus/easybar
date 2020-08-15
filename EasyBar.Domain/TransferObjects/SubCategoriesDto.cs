@@ -4,5 +4,6 @@
     {
         public string Name { get; set; }
         public string Identification { get; set; }
+        public string Categories { get; set; }
     }
 }

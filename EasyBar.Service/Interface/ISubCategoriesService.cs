@@ -9,6 +9,6 @@ namespace EasyBar.Service.Interface
         IResult Update(SubCategoriesDto tableDto);
         IResult Delete(string guid);
         IResult GetAll();
-        IResult Get(string name);
+        IResult GetByCategoriesName(string categorieName);
     }
 }

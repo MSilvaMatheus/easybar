@@ -12,5 +12,6 @@ namespace EasyBar.Domain.Interfaces.Repository
         IQueryable<SubCategoriesEntity> GetAll();
         SubCategoriesEntity Get(SubCategoriesEntity categoriesEntity);
         SubCategoriesEntity Get(string guid);
+        SubCategoriesEntity GetByCategoriesName(string categoriesName);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using EasyBar.Domain.Entity.Repository;
 using EasyBar.Domain.Interfaces.Repository;
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -32,6 +33,9 @@ namespace EasyBarI.Infrastructure.Repository.SubCategories.Repository
 
         public IQueryable<SubCategoriesEntity> GetAll()
             => _dataBaseContext.SubCategories.ToList().AsQueryable();
+
+        public SubCategoriesEntity GetByCategoriesName(string categoriesName)
+            => _dataBaseContext.SubCategories.Include(c => c.Categories).FirstOrDefault();
 
         public void Update(SubCategoriesEntity categoriesEntity)
         {
