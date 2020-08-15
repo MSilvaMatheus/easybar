@@ -29,7 +29,7 @@ namespace EasyBar.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message);
-                return BadRequest("Ocorreu uma falha no cadastro de Mesa");
+                return BadRequest("Ocorreu uma falha no cadastro da subcategoria");
             }
         }
 
@@ -43,7 +43,7 @@ namespace EasyBar.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message);
-                return BadRequest("Ocorreu uma falha na busca de Mesa");
+                return BadRequest("Ocorreu uma falha na busca da subcategoria");
             }
         }
 
@@ -57,7 +57,7 @@ namespace EasyBar.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message);
-                return BadRequest("Ocorreu uma falha na alteração de Mesa");
+                return BadRequest("Ocorreu uma falha na alteração da subcategoria");
             }
         }
 
@@ -71,7 +71,7 @@ namespace EasyBar.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message);
-                return BadRequest("Ocorreu uma falha na exclusão de Mesa");
+                return BadRequest("Ocorreu uma falha na exclusão da subcategoria");
             }
         }
 

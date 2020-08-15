@@ -5,6 +5,7 @@ namespace EasyBar.Domain.Entity.Repository
     public class ItemEntity : EntityBase
     {
         public int Name { get; set; }
+
         public decimal Value { get; set; }
 
         public string ForeignKeySubCategories { get; set; }
