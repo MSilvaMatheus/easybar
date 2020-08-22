@@ -1,5 +1,6 @@
 ﻿using EasyBar.Domain.Interfaces.Repository;
 using EasyBarI.Infrastructure.Repository.Categories.Repository;
+using EasyBarI.Infrastructure.Repository.Consumer.Repository;
 using EasyBarI.Infrastructure.Repository.Item.Repository;
 using EasyBarI.Infrastructure.Repository.SubCategories.Repository;
 using EasyBarI.Infrastructure.Repository.Table.Repository;
@@ -22,6 +23,7 @@ namespace EasyBarI.Infrastructure.Repository.ConfigurationsRepository
             service.AddScoped<ITableRepository, TableRepository>();
             service.AddScoped<ISubCategoriesRepository, SubCategoriesRepository>();
             service.AddScoped<IItemRepository, ItemRepository>();
+            service.AddScoped<IConsumerRepository, ConsumerRepository>();
         }
     }
 }

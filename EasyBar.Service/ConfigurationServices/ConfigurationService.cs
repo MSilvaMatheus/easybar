@@ -34,6 +34,7 @@ namespace EasyBar.Service.ConfigurationServices
 			service.AddScoped<ITableService, TableService>();
 			service.AddScoped<ISubCategoriesService, SubCategoriesService>();
 			service.AddScoped<IItemService, ItemService>();
+			service.AddScoped<IConsumerService, ConsumerService>();
 		}
     }
 }
