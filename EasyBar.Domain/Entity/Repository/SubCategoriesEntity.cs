@@ -10,7 +10,7 @@ namespace EasyBar.Domain.Entity.Repository
 
         public bool IsExist { get; private set; }
 
-        public string ForeignKeyCategories { get; set; }
+        public string ForeignKeyCategories { get; private set; }
 
         public virtual CategoriesEntity Categories { get; set; }
 

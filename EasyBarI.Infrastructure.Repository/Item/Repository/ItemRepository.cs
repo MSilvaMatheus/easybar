@@ -10,14 +10,18 @@ namespace EasyBarI.Infrastructure.Repository.Item.Repository
         private readonly DataBaseContext _dataBaseContext;
         public ItemRepository(DataBaseContext dataBaseContext) => _dataBaseContext = dataBaseContext;
 
-        public Task<ItemEntity> Add(ItemEntity itemEntity)
+        public async Task<ItemEntity> Add(ItemEntity itemEntity)
         {
-            throw new System.NotImplementedException();
+            await _dataBaseContext.Items.AddAsync(itemEntity);
+            await _dataBaseContext.SaveChangesAsync();
+
+            return itemEntity;
         }
 
         public void Delete(ItemEntity itemEntity)
         {
-            throw new System.NotImplementedException();
+            _dataBaseContext.Items.Remove(itemEntity);
+            _dataBaseContext.SaveChanges();
         }
 
         public IQueryable<ItemEntity> GetAll()
@@ -30,9 +34,16 @@ namespace EasyBarI.Infrastructure.Repository.Item.Repository
             throw new System.NotImplementedException();
         }
 
+        public ItemEntity Get(ItemEntity item)
+            => _dataBaseContext.Items.FirstOrDefault(i => i.Name == item.Name);
+
+        public ItemEntity Get(string guid)
+            => _dataBaseContext.Items.FirstOrDefault(i => i.Id == guid);
+
         public void Update(ItemEntity itemEntity)
         {
-            throw new System.NotImplementedException();
+            _dataBaseContext.Items.Update(itemEntity);
+            _dataBaseContext.SaveChangesAsync();
         }
     }
 }

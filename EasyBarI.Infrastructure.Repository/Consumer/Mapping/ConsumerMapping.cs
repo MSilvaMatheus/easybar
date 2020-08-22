@@ -12,6 +12,7 @@ namespace EasyBarI.Infrastructure.Repository.Consumer.Mapping
 
             builder.HasKey(consumer => consumer.Id).IsClustered(true);
             builder.Property(consumer => consumer.PhoneNumber).HasColumnName("PhoneNumber").IsRequired();
+            builder.Property(consumer => consumer.CPF).HasColumnName("CPF").IsRequired();
             builder.Property(consumer => consumer.ForeignKeyTable).HasColumnName("FkTable").IsRequired();
             builder.Property(consumer => consumer.CreatedAt).HasColumnName("CreatedAt").IsRequired();
             builder.Property(consumer => consumer.UpdatedAt).HasColumnName("UpdatedAt").IsRequired();

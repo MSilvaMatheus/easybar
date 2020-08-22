@@ -4,7 +4,7 @@ namespace EasyBar.Domain.Entity.Repository
 {
     public class TableEntity : EntityBase
     {
-        public int Number { get; set; }
+        public int Number { get; private set; }
 
         public virtual ConsumerEntity Consumer { get; set; }
 

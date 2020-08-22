@@ -11,5 +11,7 @@ namespace EasyBar.Domain.Interfaces.Repository
         void Delete(ItemEntity itemEntity);
         IQueryable<ItemEntity> GetAll();
         IQueryable<ItemEntity> GetByCategories(string guidCategories);
+        ItemEntity Get(ItemEntity item);
+        ItemEntity Get(string guid);
     }
 }
