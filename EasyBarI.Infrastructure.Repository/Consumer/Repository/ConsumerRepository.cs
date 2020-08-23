@@ -37,6 +37,9 @@ namespace EasyBarI.Infrastructure.Repository.Consumer.Repository
         public IQueryable<ConsumerEntity> GetAll()
             => _dataBaseContext.Consumers.AsQueryable();
 
+        public bool Exists(long cpf)
+            => _dataBaseContext.Consumers.FirstOrDefault(c => c.CPF == cpf) ==  null ? false : true;
+
         public void Update(ConsumerEntity consumer)
         {
             _dataBaseContext.Consumers.Update(consumer);

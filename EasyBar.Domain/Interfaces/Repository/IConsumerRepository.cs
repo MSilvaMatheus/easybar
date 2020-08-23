@@ -13,5 +13,7 @@ namespace EasyBar.Domain.Interfaces.Repository
         ConsumerEntity Get(ConsumerEntity consumer);
         ConsumerEntity Get(string guid);
         ConsumerEntity Get(long number);
+
+        bool Exists(long cpf);
     }
 }

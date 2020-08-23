@@ -8,17 +8,15 @@ namespace EasyBar.Domain.Entity.Authentication
         public string User { get; set; }
         public string Password { get; set; }
 
-        public CredentialEntity(string user, string password)
+        public CredentialEntity(string user)
         {
             User = user;
-            Password = password;  
         }
 
         public override void Validate()
         {
             AddNotifications(new Contract()
-               .IsNotNullOrEmpty(User, nameof(User), "O Usuário ou Senha inválidos")
-               .IsNotNullOrEmpty(Password, nameof(Password), "O Usuário ou Senha inválidos"));
+               .IsNotNullOrEmpty(User, nameof(User), "O Usuário ou Senha inválidos"));
         }
     }
 }
